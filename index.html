@@ -36,17 +36,28 @@
    <script>
       
       
-      alert("testing")    
+        
+      var screen = window.innerWidth;
       const mainBody = document.querySelector("body");
       const alertBoxOverlay = document.querySelector("#overlay-alert-box");
       const alertBox = document.querySelector("#alert-box");
       const alertMsg = document.querySelector("#alert-msg");
 
       document.querySelector("#test").addEventListener("click", (event) => { 
+      if(screen<=480){
+         alertBox.style.top = "50%";
+         alertBox.style.left = "5vw";
+         alertBox.style.opacity = 1; 
+         alertBox.style.transform = "translate(0, -50%)"; 
+
+      }
+      else{
+         alertBox.style.top = "2vh";
+         alertBox.style.opacity = 1; 
+      }
+
       
-      alertBoxOverlay.style.display = "block";
-      alertBox.style.top = "2vh";
-      alertBox.style.opacity = 1; 
+     
       alertMsg.innerText = "click OK to exit. If it doesn't works, then it's probably due to your browser security. kindly exit manually.";
       mainBody.style.overflow = "hidden";
 
